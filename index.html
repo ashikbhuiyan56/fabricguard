@@ -17,12 +17,13 @@
   <div class="wrap header-inner">
     <a class="logo" href="#">FabricGuard</a>
     <nav class="nav" id="nav">
+      <a href="#try">Try it</a>
       <a href="#how">How it works</a>
       <a href="#defects">Defects</a>
       <a href="#results">Results</a>
       <a href="#team">Team</a>
     </nav>
-    <a class="btn btn-dark btn-sm header-cta" href="#app">See the app</a>
+    <a class="btn btn-dark btn-sm header-cta" href="#try">Try it</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
@@ -34,7 +35,7 @@
         <h1>Catch garment defects before the buyer does.</h1>
         <p>FabricGuard looks at a photo of a garment, tells the inspector what's wrong with it and shows exactly where it looked.</p>
         <div class="hero-actions">
-          <a class="btn btn-dark" href="#app">See the app</a>
+          <a class="btn btn-dark" href="#try">Try it on a photo</a>
           <a class="btn btn-link" href="#how">How it works &rarr;</a>
         </div>
       </div>
@@ -45,6 +46,54 @@
     <div class="wrap made-at">
       <img src="assets/img/diu_logo.png" alt="" width="30" height="26" />
       <span>Built at Daffodil International University, CSE437 Computer Vision</span>
+    </div>
+  </section>
+
+  <section class="section section-grey" id="try">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Try it on your own photo</h2>
+        <p>Runs in your browser. Your photo is not uploaded anywhere.</p>
+      </div>
+
+      <div class="inspector">
+        <div class="insp-input">
+          <label class="drop" id="drop">
+            <input type="file" id="fileInput" accept="image/*" hidden />
+            <canvas id="view" width="448" height="448" hidden></canvas>
+            <div class="drop-empty" id="dropEmpty">
+              <b>Drop a garment photo here</b>
+              <span>or click to choose a file</span>
+            </div>
+          </label>
+          <div class="insp-tools">
+            <label class="btn btn-dark btn-sm" for="camInput">Take a photo</label>
+            <input type="file" id="camInput" accept="image/*" capture="environment" hidden />
+            <label class="toggle"><input type="checkbox" id="heatToggle" checked /> Show heat-map</label>
+          </div>
+          <div class="samples">
+            <span>Or try a test image:</span>
+            <div id="sampleRow"></div>
+          </div>
+        </div>
+
+        <div class="insp-result" id="result">
+          <div class="result-empty" id="resultEmpty">
+            <p id="modelStatus">Loading the model&hellip;</p>
+            <p class="small">The model only knows the six defect types below and has no "no defect" class.
+              A photo without a defect, or something that isn't a garment, still gets one of the six labels,
+              usually with low confidence, and is sent to manual review.</p>
+          </div>
+          <div id="resultBody" hidden>
+            <div class="verdict" id="verdict"></div>
+            <div id="warnings"></div>
+            <p class="action" id="action"></p>
+            <div class="probs" id="probs"></div>
+            <p class="small muted" id="timing"></p>
+          </div>
+          <p class="small muted model-info" id="modelInfo"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -117,7 +166,9 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
 <script src="assets/data.js"></script>
 <script src="assets/main.js"></script>
+<script src="assets/inspect.js"></script>
 </body>
 </html>
