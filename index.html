@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FabricGuard · Garment defect inspection</title>
+  <meta name="description" content="FabricGuard checks garment photos for defects, shows where it looked, and keeps a log for every shift." />
+  <link rel="icon" href="assets/img/diu_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#">FabricGuard</a>
+    <nav class="nav" id="nav">
+      <a href="#how">How it works</a>
+      <a href="#defects">Defects</a>
+      <a href="#results">Results</a>
+      <a href="#team">Team</a>
+    </nav>
+    <a class="btn btn-dark btn-sm header-cta" href="#app">See the app</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <h1>Catch garment defects before the buyer does.</h1>
+        <p>FabricGuard looks at a photo of a garment, tells the inspector what's wrong with it and shows exactly where it looked.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#app">See the app</a>
+          <a class="btn btn-link" href="#how">How it works &rarr;</a>
+        </div>
+      </div>
+      <div class="hero-shot" id="app">
+        <img src="assets/img/app_mockup.jpg" alt="FabricGuard inspection screen" />
+      </div>
+    </div>
+    <div class="wrap made-at">
+      <img src="assets/img/diu_logo.png" alt="" width="30" height="26" />
+      <span>Built at Daffodil International University, CSE437 Computer Vision</span>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <h2>Three steps at the inspection table</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">1</span>
+          <h3>Take a photo</h3>
+          <p>Use a phone or a fixed camera. Dark or blurry shots are flagged right away.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">2</span>
+          <h3>Get the defect type</h3>
+          <p>The model names the defect and highlights the area it based that on.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">3</span>
+          <h3>Confirm and move on</h3>
+          <p>Unsure cases go to the inspector. Everything is saved to the shift log.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-grey" id="defects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Six defects it knows</h2>
+        <p>Trained on 2,443 real garment photos.</p>
+      </div>
+      <div class="defects" id="defectGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="results">
+    <div class="wrap results">
+      <div class="results-text">
+        <h2>86% macro-F1 on unseen photos</h2>
+        <p>We tested four models on images the models never saw during training. A fine-tuned EfficientNet-B0 came out on top.</p>
+        <a class="btn btn-light" href="reports/Milestone4_Baselines_Models_FabricGuard.docx">Read the report</a>
+      </div>
+      <div class="results-chart" id="metricChart"></div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Team</h2>
+        <p>Supervised by Md. Shahriar Shakil, Lecturer (Senior Scale), Dept. of CSE.</p>
+      </div>
+      <ul class="team" id="teamGrid"></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="logo" href="#">FabricGuard</a>
+      <p>Daffodil International University &middot; 2026</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://data.mendeley.com/datasets/y62b4pfyz2/1" target="_blank" rel="noopener">Dataset</a>
+      <a href="reports/Milestone1_Problem_Scope_FabricGuard.docx">Project reports</a>
+      <a href="#">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
